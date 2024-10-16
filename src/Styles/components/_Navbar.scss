@@ -1,0 +1,104 @@
+@import "../Base/Varibles";
+@import "../utils//mixins";
+
+nav {
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 10px;
+  position: fixed;
+  width: 85%;
+  background-color: white;
+  z-index: 10001;
+  @media (max-width: 560px) {
+    width: 95%;
+  }
+  a.logo {
+    cursor: pointer;
+  }
+  .Links {
+    display: flex;
+    list-style: none;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    @include breakPoint(mobile) {
+      display: none;
+    }
+    a {
+      padding: 15px 0;
+      margin: 0 15px;
+      color: $GrayishBlue;
+      transition: $mainTransition;
+      position: relative;
+      &:hover {
+        color: #000000e5;
+      }
+      &:hover::before {
+        width: 100%;
+      }
+      &::before {
+        transition: $mainTransition;
+        content: "";
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: -20px;
+        background-image: linear-gradient(to right, $LimeGreen, $BrightCyan);
+        height: 4px;
+        width: 0;
+        z-index: 1;
+      }
+    }
+  }
+  .request-btn {
+    @include breakPoint(M&S) {
+      display: none;
+    }
+  }
+  .humbergar {
+    display: none;
+    cursor: pointer;
+    width: 30px;
+    height: 20px;
+    opacity: 0.5;
+    transition: $mainTransition;
+    @include breakPoint(mobile) {
+      display: block;
+    }
+    &:hover {
+      opacity: 1;
+    }
+  }
+  .drop-menu {
+    list-style: none;
+    position: fixed;
+    width: 85%;
+    background-color: white;
+    top: 95px;
+    left: 10%;
+    text-align: center;
+    padding: 25px;
+    z-index: 1000000;
+    border-radius: 5px;
+    transform: translateX(100vw);
+    transition: $mainTransition;
+    a {
+      color: #000000e5;
+      padding: 8px;
+      display: block;
+    }
+  }
+}
+
+.request-btn {
+  border-radius: 30px;
+  padding: 10px 25px;
+  border: none;
+  color: white;
+  font-weight: 600;
+  background-image: linear-gradient(to right, $LimeGreen, $BrightCyan);
+  transition: $mainTransition;
+  &:hover {
+    opacity: 0.6;
+  }
+}

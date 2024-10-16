@@ -1,0 +1,47 @@
+@import "../Base/Varibles";
+@import "../utils/mixins";
+
+.features {
+  background-color: #eeeeee8f;
+  padding: 50px;
+  @include breakPoint(mobile) {
+    padding: 15px;
+  }
+  .titles {
+    max-width: 700px;
+    margin-bottom: 60px;
+    p {
+      color: $GrayishBlue;
+      margin-top: 15px;
+    }
+  }
+  .boxes-container {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    margin-top: 45px;
+    gap: 40px;
+    @include breakPoint(mobile) {
+      gap: 0;
+    }
+    div {
+      grid-column: span 3;
+
+      @include breakPoint(mobile) {
+        grid-column: span 12;
+        text-align: center;
+      }
+      @include breakPoint(small) {
+        grid-column: span 6;
+      }
+      img {
+        margin-bottom: 30px;
+      }
+      h3 {
+        margin-bottom: 30px;
+      }
+      p {
+        color: $GrayishBlue;
+      }
+    }
+  }
+}
